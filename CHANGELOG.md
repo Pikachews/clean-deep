@@ -1,5 +1,7 @@
 # Changelog
 
+## [v3.5.0](https://github.com/nunofgs/clean-deep/releases/tag/v3.5.0) (2021-06-06)
+
 ## [v3.4.0](https://github.com/nunofgs/clean-deep/releases/tag/v3.4.0) (2020-08-19)
 - Bump acorn from 5.7.3 to 5.7.4 [\#39](https://github.com/nunofgs/clean-deep/pull/39) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump lodash from 4.17.15 to 4.17.19 [\#44](https://github.com/nunofgs/clean-deep/pull/44) ([dependabot[bot]](https://github.com/apps/dependabot))
