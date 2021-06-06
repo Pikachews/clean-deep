@@ -11,4 +11,5 @@ export type CleanOptions = {
     NaNValues?: boolean;
     nullValues?: boolean;
     undefinedValues?: boolean;
+    skipFilter?: (key: string, value: any) => boolean;
 };

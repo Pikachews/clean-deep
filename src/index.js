@@ -19,9 +19,21 @@ module.exports = function cleanDeep(object, {
   emptyStrings = true,
   NaNValues = false,
   nullValues = true,
+  skipFilter = undefined,
   undefinedValues = true
 } = {}) {
   return transform(object, (result, value, key) => {
+    if (skipFilter && skipFilter(key, value)) {
+        // Append when recursing arrays.
+        if (Array.isArray(result)) {
+            return result.push(value);
+        }
+
+        result[key] = value;
+
+        return;
+    }
+
     // Exclude specific keys.
     if (cleanKeys.includes(key)) {
       return;
@@ -29,7 +41,7 @@ module.exports = function cleanDeep(object, {
 
     // Recurse into arrays and objects.
     if (Array.isArray(value) || isPlainObject(value)) {
-      value = cleanDeep(value, { NaNValues, cleanKeys, cleanValues, emptyArrays, emptyObjects, emptyStrings, nullValues, undefinedValues });
+      value = cleanDeep(value, { NaNValues, cleanKeys, cleanValues, emptyArrays, emptyObjects, emptyStrings, nullValues, skipFilter, undefinedValues });
     }
 
     // Exclude specific values.
